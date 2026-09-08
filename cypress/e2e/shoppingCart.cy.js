@@ -59,5 +59,17 @@ describe('Shopping cart test', () => {
     cy.get('#tbodyid .price-container').should(($el) => {
       expect($el.text()).to.contain(laptopPrice);
     });
+    cy.window().then((win) => {
+      cy.stub(win, 'alert').as('alertStub');
+    });
+    cy.get('#tbodyid .btn').click();
+    cy.get('@alertStub').should('have.been.calledWith', 'Product added');
+    cy.get('#cartur').click();
+    cy.wait(['@viewDetail', '@viewDetail']).then(() => {
+      cy.contains('#tbodyid tr', phoneName).within(() => {
+        cy.get('td').eq(cartPriceColumnIndex).should('contain.text', phonePrice);
+      });
+    });
+
   });
 });
