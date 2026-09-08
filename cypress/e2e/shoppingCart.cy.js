@@ -13,7 +13,7 @@ describe('Shopping cart test', () => {
     cy.wait('@byCat');
 
     cy.get('.card-title a').first().invoke('text').then((text) => {
-      phoneName = text;
+      phoneName = text.trim();
       cy.log(phoneName);
     });
     cy.get('.card-block h5').first().invoke('text').then((text) => {
@@ -22,7 +22,7 @@ describe('Shopping cart test', () => {
     });
     cy.get('.card-title a').first().click();
     cy.get('#tbodyid .name').should(($el) => {
-      expect($el.text()).to.eq(phoneName);
+      expect($el.text().trim()).to.eq(phoneName);
     });
     cy.get('#tbodyid .price-container').should(($el) => {
       expect($el.text()).to.contain(phonePrice);
@@ -45,7 +45,7 @@ describe('Shopping cart test', () => {
     cy.wait('@byCat');
 
     cy.get('.card-title a').eq(1).invoke('text').then((text) => {
-      laptopName = text;
+      laptopName = text.trim();
       cy.log(laptopName);
     });
      cy.get('.card-block h5').eq(1).invoke('text').then((text) => {
@@ -53,8 +53,9 @@ describe('Shopping cart test', () => {
       cy.log(laptopPrice);
     });
     cy.get('.card-title a').eq(1).click();
+    cy.wait('@viewDetail');
     cy.get('#tbodyid .name').should(($el) => {
-      expect($el.text()).to.eq(laptopName);
+      expect($el.text().trim()).to.eq(laptopName);
     });
     cy.get('#tbodyid .price-container').should(($el) => {
       expect($el.text()).to.contain(laptopPrice);
@@ -68,6 +69,9 @@ describe('Shopping cart test', () => {
     cy.wait(['@viewDetail', '@viewDetail']).then(() => {
       cy.contains('#tbodyid tr', phoneName).within(() => {
         cy.get('td').eq(cartPriceColumnIndex).should('contain.text', phonePrice);
+      });
+      cy.get('#tbodyid').then(($el) => {
+      cy.log(`laptopName="[${laptopName}]" length=${laptopName.length}`);
       });
       cy.contains('#tbodyid tr', laptopName).within(() => {
         cy.get('td').eq(cartPriceColumnIndex).should('contain.text', laptopPrice);
