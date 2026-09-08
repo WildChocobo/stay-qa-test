@@ -69,7 +69,13 @@ describe('Shopping cart test', () => {
       cy.contains('#tbodyid tr', phoneName).within(() => {
         cy.get('td').eq(cartPriceColumnIndex).should('contain.text', phonePrice);
       });
+      cy.contains('#tbodyid tr', laptopName).within(() => {
+        cy.get('td').eq(cartPriceColumnIndex).should('contain.text', laptopPrice);
+      });
+       cy.get('#totalp').should(($el) => {
+        const expectedTotal = parseFloat(phonePrice) + parseFloat(laptopPrice);
+        expect(Number($el.text())).to.eq(expectedTotal);
+      });
     });
-
   });
 });
