@@ -25,6 +25,8 @@ npx cypress run    # headless
 npx cypress open   # interactive Test Runner
 ```
 
+> **Note:** Cypress's bundled Electron browser is [deprecated as of Cypress 16](https://www.cypress.io/blog/the-electron-browser-is-being-deprecated-in-cypress) and will eventually be removed. `npx cypress run` still works fine with it today — it's kept as the default here because it ships with Cypress and doesn't require a separately installed browser. To run against Chrome instead: `npx cypress run --browser chrome`.
+
 ---
 
 ## Project Structure
