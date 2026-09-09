@@ -1,14 +1,13 @@
 {
   "name": "stay-qa-test",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Cypress E2E test for the demoblaze.com shopping cart flow",
   "scripts": {
     "test": "cypress run",
     "lint": "eslint cypress"
   },
   "keywords": [],
-  "author": "",
+  "author": "Milenka Kozusnik",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
