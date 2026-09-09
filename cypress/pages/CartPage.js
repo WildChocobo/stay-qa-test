@@ -1,7 +1,20 @@
-export function row(productName) {
-  return cy.contains('#tbodyid tr', productName);
-}
+class CartPage {
+  #row = '#tbodyid tr';
+  #cell = 'td';
+  #priceColumnIndex = 2;
+  #totalAmount = '#totalp';
 
-export function total() {
-  return cy.get('#totalp');
-}
+  row(productName) {
+    return cy.contains(this.#row, productName);
+  };
+
+  rowPrice(productName) {
+    return cy.contains(this.#row, productName).find(this.#cell).eq(this.#priceColumnIndex);
+  };
+
+  total() {
+    return cy.get(this.#totalAmount);
+  };
+};
+
+export default new CartPage();

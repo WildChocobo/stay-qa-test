@@ -1,19 +1,26 @@
-export function visit() {
-  cy.visit('https://www.demoblaze.com/index.html');
-}
+class HomePage{
+  #categoryLink = '.list-group-item';
+  #productTitle = '.card-title a';
+  #productPrice = '.card-block h5';
+  
+  visit() {
+    cy.visit('/index.html');
+  };
+  selectCategory(categoryName) {
+    cy.contains(this.#categoryLink, categoryName).click();
+  };
+  
+  product(index) {
+    return cy.get(this.#productTitle).eq(index);
+  };
 
-export function selectCategory(categoryName) {
-  cy.contains('.list-group-item', categoryName).click();
-}
+  productPrice(index) {
+    return cy.get(this.#productPrice).eq(index);
+  };
 
-export function product(index) {
-  return cy.get('.card-title a').eq(index);
-}
+  openProduct(index) {
+    cy.get(this.#productTitle).eq(index).click();
+  };
+};
 
-export function productPrice(index) {
-  return cy.get('.card-block h5').eq(index);
-}
-
-export function openProduct(index) {
-  cy.get('.card-title a').eq(index).click();
-}
+export default new HomePage();

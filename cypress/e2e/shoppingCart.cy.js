@@ -1,8 +1,24 @@
-import * as HomePage from '../pages/homePage';
-import * as ProductDetailPage from '../pages/productDetailPage';
-import * as NavBar from '../pages/navBar';
-import * as CartPage from '../pages/cartPage';
+import * as HomePage from '../pages/HomePage';
+import * as ProductDetailPage from '../pages/ProductDetailPage';
+import * as NavBar from '../pages/NavBar';
+import * as CartPage from '../pages/CartPage';
 import { interceptByCat, interceptViewDetail } from '../support/network';
+
+describe('Shopping cart test', () => {
+    it('Adds a phone and a laptop to the cart and validates the total',  ()=>{
+
+        const cartPriceColumnIndex = 2;
+        let phoneName;
+        let phonePrice;
+        let laptopName;
+        let laptopPrice;
+
+
+
+
+
+    })
+});
 
 
 // describe('Shopping cart test', () => {

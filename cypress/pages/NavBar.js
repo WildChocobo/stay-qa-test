@@ -1,7 +1,14 @@
-export function goToCart() {
-  cy.get('#cartur').click();
-}
+class NavBar {
+  #cartLink = '#cartur';
+  #navLink = '.nav-link';
 
-export function goHome() {
-  cy.contains('.nav-link', 'Home').click();
-}
+  goToCart() {
+    cy.get(this.#cartLink).click();
+  };
+
+  goHome() {
+    cy.contains(this.#navLink, 'Home').click();
+  };
+};
+
+export default new NavBar();

@@ -1,11 +1,19 @@
-export function name() {
-  return cy.get('#tbodyid .name');
-}
+class ProductDetailPage {
+  #name = '#tbodyid .name';
+  #price = '#tbodyid .price-container';
+  #addToCartButton = '#tbodyid .btn';
 
-export function price() {
-  return cy.get('#tbodyid .price-container');
-}
+  name() {
+    return cy.get(this.#name);
+  };
 
-export function addToCart() {
-  cy.get('#tbodyid .btn').click();
-}
+  price() {
+    return cy.get(this.#price);
+  };
+
+  addToCart() {
+    cy.get(this.#addToCartButton).click();
+  };
+};
+
+export default new ProductDetailPage();
