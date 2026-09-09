@@ -45,7 +45,7 @@ stay-qa-test/
 │       ├── commands.js             # Custom commands (alert stubbing)
 │       ├── network.js              # cy.intercept() declarations
 │       └── e2e.js                  # Cypress support file (loads commands.js)
-├── cypress.config.js                # baseUrl + Cypress config
+├── cypress.config.js               # baseUrl + Cypress config
 ├── eslint.config.mjs
 └── package.json
 ```
@@ -54,12 +54,12 @@ stay-qa-test/
 
 ## Scripts
 
-| Command            | Description                       |
-| ------------------ | ---------------------------------- |
-| `npm test`         | Run the test headless (alias for `cypress run`) |
-| `npx cypress run`  | Run the test headless              |
-| `npx cypress open` | Run the test in the Test Runner    |
-| `npm run lint`      | Run ESLint against `cypress/`      |
+| Command            | Description                                      |
+| ------------------ | ----------------------------------               |
+| `npm test`         | Run the test headless (alias for `cypress run`)  |
+| `npx cypress run`  | Run the test headless                            |
+| `npx cypress open` | Run the test in the Test Runner                  |
+| `npm run lint`     | Run ESLint against `cypress/`                    |
 
 ---
 
