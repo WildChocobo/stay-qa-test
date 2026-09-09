@@ -4,10 +4,6 @@ class CartPage {
   #priceColumnIndex = 2;
   #totalAmount = '#totalp';
 
-  row(productName) {
-    return cy.contains(this.#row, productName);
-  };
-
   rowPrice(productName) {
     return cy.contains(this.#row, productName).find(this.#cell).eq(this.#priceColumnIndex);
   };
